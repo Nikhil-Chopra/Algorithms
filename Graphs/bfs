@@ -1,0 +1,25 @@
+vector<int> v[100009];
+int level[100009];
+int vis[100009]={0};
+
+void bfs(int s)
+{   
+    queue<int> q;
+    q.push(s);
+    level[s]=0;
+    vis[s]=1;
+    while(!q.empty())
+    {
+        int p=q.front();
+        q.pop();
+        for(int i=0;i<v[p].size();i++)
+        {
+            if(vis[v[p][i]]==0)
+            {
+                q.push(v[p][i]);
+                level[v[p][i]]=level[p]+1;
+                vis[v[p][i]]=1;
+            }
+        }
+    }
+}
