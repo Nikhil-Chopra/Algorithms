@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
-
+#define all(v) v.begin(),v.end()
 ll ver[10009]={0};
 void init(ll n)
 {
@@ -60,11 +60,9 @@ int main()
     while(ede--)
     {
         cin>>a>>b>>we;
-        v.push_back(make_pair(we,make_pair(a,b)));
+        v.push_back({we,{a,b}});
     }
-    sort(v.begin(),v.end());
-    ll ans;
-    ans=krus(v,k);
-    cout<<ans;
+    sort(all(v));
+    cout<<krus(v,k);
     return 0;
 }
